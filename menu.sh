@@ -71,9 +71,19 @@ do
 	;;
 
 	4)
+	  if comprobar_filename; then
+	    sort -k5 -nr "EPNro1/salida/$FILENAME.txt" | head -10
+	  else
+	    echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero."
+	  fi
 	;;
 
 	5)
+          if comprobar_filename; then
+	    echo "escribir un numero de padron: "
+	    echo ""
+	    read padron
+		if [[ $padron -ge 0 && $padron -le 10 ]]; then
 	;;
 
 	6)
