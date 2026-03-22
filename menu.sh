@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Para correr este script mover el menu.sh y el consolidar.sh a HOME
+
 if [ "$1" == "-d" ]; then 
     echo "Borrando el entorno"
     rm -r $HOME/EPNro1
@@ -29,7 +31,7 @@ while true
 do
 
   echo ""
-  read -p "Porfavor, elegí una opción: "
+  read -p "Porfavor, elegí una opción: " opcion
   echo ""
 
 	if [[ $opcion != "1" && $opcion != "6" ]]; then
@@ -48,10 +50,8 @@ do
           else
                 mkdir -p $HOME/EPNro1/entrada $HOME/EPNro1/procesado $HOME/EPNro1/salida
             	echo "Creación de entorno EPNro1 exitoso."
-
 	  fi
 	;;
-
 	2)
 	  if [[ comprobar_entorno && -f $HOME/consolidar.sh ]]; then
                 if mv $HOME/consolidar.sh $HOME/EPNro1; then
