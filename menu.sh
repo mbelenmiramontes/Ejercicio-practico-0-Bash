@@ -6,6 +6,10 @@ comprobar_entorno() {
         [[ -d "$HOME/EPNro1/entrada" && -d "$HOME/EPNro1/salida" && -d "$HOME/EPNro1/procesado" ]]
 }
 
+comprobar_filename() {
+	[[ -n "$FILENAME" && -f "$HOME/EPNro1/salida/$FILENAME.txt" ]]
+}
+
   echo "⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔ ꒰ MENÚ ꒱⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔"
   echo "╰┈➤. Opción 1)  Crear entorno"
   echo "╰┈➤. Opción 2)  Correr proceso"
@@ -59,6 +63,11 @@ do
 	;;
 
 	3)
+          if comprobar_filename; then
+            sort -n -k1 "EPNro1/salida/$FILENAME.txt"
+          else
+            echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero"
+          fi
 	;;
 
 	4)
