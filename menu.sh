@@ -37,7 +37,8 @@ do
 	  if comprobar_entorno; then
                 echo "El entorno EPNro1 y sus subcarpetas ya existen."
           else
-
+                mkdir -p $HOME/EPNro1/entrada $HOME/EPNro1/procesado $HOME/EPNro1/salida
+            	echo "Creación de entorno EPNro1 exitoso."
 
 	  fi
 	;;
