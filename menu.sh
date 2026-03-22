@@ -44,6 +44,18 @@ do
 	;;
 
 	2)
+	  if [[ comprobar_entorno && -f $HOME/consolidar.sh ]]; then
+                if mv $HOME/consolidar.sh $HOME/EPNro1; then
+                        echo "Proceso funcionando correctamente en el background."
+                        bash $HOME/EPNro1/consolidar.sh &
+                else
+                    	echo "No se pudo mover el archivo."
+                fi
+          elif [[ -f $HOME/EPNro1/consolidar.sh ]]; then
+                echo "Proceso funcionando correctamente en el background."
+          else
+                echo "No podemos correr el proceso porque no existe el programa encargado."
+          fi
 	;;
 
 	3)
