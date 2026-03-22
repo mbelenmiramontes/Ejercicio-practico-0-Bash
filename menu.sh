@@ -1,6 +1,11 @@
 #!/bin/bash
 
-
+if [ "$1" == "-d" ]; then 
+    echo "Borrando el entorno"
+    rm -r $HOME/EPNro1
+    pkill -f consolidar.sh
+    exit 0
+fi
 
 comprobar_entorno() {
         [[ -d "$HOME/EPNro1/entrada" && -d "$HOME/EPNro1/salida" && -d "$HOME/EPNro1/procesado" ]]
@@ -100,5 +105,11 @@ do
 	;;
 
 	6)
+          echo "Saliendo..."
+          exit
 	;;
+        *)
+          echo "Opción no válida. Por favor, intentá de nuevo."
+        ;;
   esac
+done
