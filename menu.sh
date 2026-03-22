@@ -9,4 +9,4 @@
   echo "╰┈➤. Opción 5)  Nro padrón"
   echo "╰┈➤. Opción 6)  Salir"
   echo "⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔"
-  echo "<$FILENAME> ha sido exportado exitosamente (ദി˙ᗜ˙)"
+  echo "Tu archivo final se llamará $FILENAME.txt (ദി˙ᗜ˙)"
