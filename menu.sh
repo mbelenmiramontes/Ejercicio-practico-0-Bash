@@ -84,6 +84,19 @@ do
 	    echo ""
 	    read padron
 		if [[ $padron -ge 0 && $padron -le 10 ]]; then
+			echo ""
+		        echo "El padron no existe"
+		else
+			if grep -q -w "$padron" "EPNro1/salida/$FILENAME.txt"; then
+                                echo ""
+                                grep -w "$padron" "EPNro1/salida/$FILENAME.txt"
+                        else
+                                echo ""
+                                echo "El padron no existe"
+                        fi
+		fi
+	  else echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero."
+	  fi
 	;;
 
 	6)
