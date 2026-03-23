@@ -3,7 +3,7 @@
 # Para correr este script mover el menu.sh y el consolidar.sh a HOME
 
 if [ "$1" == "-d" ]; then 
-    echo "Borrando el entorno"
+    echo "Entorno borrado ╮( ˘ ､ ˘ )╭"
     rm -r $HOME/EPNro1
     pkill -f consolidar.sh
     exit 0
@@ -24,7 +24,7 @@ comprobar_filename() {
   echo "╰┈➤. Opción 4)  Notas más altas"
   echo "╰┈➤. Opción 5)  Nro padrón"
   echo "╰┈➤. Opción 6)  Salir"
-  echo "⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔"
+  echo "⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔"
   echo "Tu archivo final se llamará $FILENAME.txt (ദി˙ᗜ˙)"
 
 while true
@@ -36,7 +36,7 @@ do
 
 	if [[ $opcion != "1" && $opcion != "6" ]]; then
          if ! comprobar_entorno; then
-            echo "Error: el entorno esta incompleto, por favor seleccionar la opcion 1 primero."
+            echo "Error: el entorno esta incompleto, por favor seleccionar la opcion 1 primero (ó﹏ò｡)"
             continue
          fi
 	fi
@@ -46,24 +46,24 @@ do
 
 	1)
 	  if comprobar_entorno; then
-                echo "El entorno EPNro1 y sus subcarpetas ya existen."
+                echo "El entorno EPNro1 y sus subcarpetas ya existen (・ᴗ・;)"
           else
                 mkdir -p $HOME/EPNro1/entrada $HOME/EPNro1/procesado $HOME/EPNro1/salida
-            	echo "Creación de entorno EPNro1 exitoso."
+            	echo "Creación de entorno EPNro1 exitoso ᕙ(⇀ ᵕ ↼‵‵)ᕗ"
 	  fi
 	;;
 	2)
 	  if [[ comprobar_entorno && -f $HOME/consolidar.sh ]]; then
                 if mv $HOME/consolidar.sh $HOME/EPNro1; then
-                        echo "Proceso funcionando correctamente en el background."
+                        echo "Proceso funcionando correctamente en el background °\(^▿^)/°"
                         bash $HOME/EPNro1/consolidar.sh &
                 else
-                    	echo "No se pudo mover el archivo."
+                    	echo "No se pudo mover el archivo (・ᴗ・;)"
                 fi
           elif [[ -f $HOME/EPNro1/consolidar.sh ]]; then
-                echo "Proceso funcionando correctamente en el background."
+                echo "Proceso funcionando correctamente en el background °\(^▿^)/°"
           else
-                echo "No podemos correr el proceso porque no existe el programa encargado."
+                echo "No podemos correr el proceso porque no existe el programa encargado 【・_・?】"
           fi
 	;;
 
@@ -71,7 +71,7 @@ do
           if comprobar_filename; then
             sort -n -k1 "EPNro1/salida/$FILENAME.txt"
           else
-            echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero"
+            echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero (ó﹏ò｡)"
           fi
 	;;
 
@@ -79,7 +79,7 @@ do
 	  if comprobar_filename; then
 	    sort -k5 -nr "EPNro1/salida/$FILENAME.txt" | head -10
 	  else
-	    echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero."
+	    echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero (ó﹏ò｡)"
 	  fi
 	;;
 
@@ -90,26 +90,26 @@ do
 	    read padron
 		if [[ $padron -ge 0 && $padron -le 10 ]]; then
 			echo ""
-		        echo "El padron no existe"
+		        echo "El padron no existe 【・_・?】"
 		else
 			if grep -q -w "$padron" "EPNro1/salida/$FILENAME.txt"; then
                                 echo ""
                                 grep -w "$padron" "EPNro1/salida/$FILENAME.txt"
                         else
                                 echo ""
-                                echo "El padron no existe"
+                                echo "El padron no existe 【・_・?】"
                         fi
 		fi
-	  else echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero."
+	  else echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero (ó﹏ò｡)"
 	  fi
 	;;
 
 	6)
-          echo "Saliendo..."
+          echo "Ha salido del programa ᕕ( ᐛ )ᕗ"
           exit
 	;;
         *)
-          echo "Opción no válida. Por favor, intentá de nuevo."
+          echo "Opción no válida. Por favor, intentá de nuevo ¯\_(ツ)_/¯"
         ;;
   esac
 done
