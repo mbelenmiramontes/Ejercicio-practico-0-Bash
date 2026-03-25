@@ -27,7 +27,9 @@ comprobar_filename() {
   echo "⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔⏔"
   echo "Tu archivo final se llamará $FILENAME.txt (ദി˙ᗜ˙)"
 
-while true
+funciona=1
+
+while [[ "$funciona" -eq 1 ]] 
 do
 
   echo ""
@@ -69,7 +71,7 @@ do
 
 	3)
           if comprobar_filename; then
-            sort -n -k1 "EPNro1/salida/$FILENAME.txt"
+            sort -n -k1 "$HOME/EPNro1/salida/$FILENAME.txt"
           else
             echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero (ó﹏ò｡)"
           fi
@@ -77,7 +79,7 @@ do
 
 	4)
 	  if comprobar_filename; then
-	    sort -k5 -nr "EPNro1/salida/$FILENAME.txt" | head -10
+	    sort -k5 -nr "$HOME/EPNro1/salida/$FILENAME.txt" | head -10
 	  else
 	    echo "No existe el archivo $FILENAME. Por favor hacer el paso 2 primero (ó﹏ò｡)"
 	  fi
@@ -92,9 +94,9 @@ do
 			echo ""
 		        echo "El padron no existe 【・_・?】"
 		else
-			if grep -q -w "$padron" "EPNro1/salida/$FILENAME.txt"; then
+			if grep -q -w "$padron" "$HOME/EPNro1/salida/$FILENAME.txt"; then
                                 echo ""
-                                grep -w "$padron" "EPNro1/salida/$FILENAME.txt"
+                                grep -w "$padron" "$HOME/EPNro1/salida/$FILENAME.txt"
                         else
                                 echo ""
                                 echo "El padron no existe 【・_・?】"
@@ -106,7 +108,7 @@ do
 
 	6)
           echo "Ha salido del programa ᕕ( ᐛ )ᕗ"
-          exit
+          funciona=0
 	;;
         *)
           echo "Opción no válida. Por favor, intentá de nuevo ¯\_(ツ)_/¯"

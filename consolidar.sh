@@ -3,7 +3,7 @@
 # Inicio un bucle para que el script este siempre ejecutandose y
 # buscando archivos
 
-while true;
+while [[ -d $HOME/EPNro1/entrada ]];
 do
   for file in $HOME/EPNro1/entrada/*.txt;
   do
